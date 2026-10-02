@@ -67,6 +67,15 @@ Release artifacts:
 
 The application is packaged with jpackage, so end users do not need to install a separate Java runtime.
 
+## Roadmap
+
+Planned post-v1.0 improvements are tracked in [ROADMAP.md](ROADMAP.md).
+
+Current v1.1.0 targets include:
+
+- freely resizable frameless window
+- general n-th root support beyond square root
+
 ## Release Process
 
 1. Ensure main passes CI.

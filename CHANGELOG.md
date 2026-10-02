@@ -4,6 +4,13 @@ All notable changes to this project are documented in this file.
 
 The project follows Semantic Versioning.
 
+## [1.0.1] - 2026-10-02
+
+### Fixed
+
+- Fixed native packaged launchers exiting immediately on Windows by introducing a dedicated non-JavaFX bootstrap class for jpackage.
+- Updated native Windows and Ubuntu packaging to launch through the bootstrap class.
+
 ## [1.0.0] - 2026-10-02
 
 ### Added

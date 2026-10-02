@@ -35,7 +35,7 @@ jobs:
           VERSION="${GITHUB_REF_NAME#v}"
           MAIN_JAR="$(basename "$(find build/jpackage-input -maxdepth 1 -name 'Calculator-DM-*.jar' -print -quit)")"
           mkdir -p build/release
-          jpackage --type deb --name denysov-calculator --app-version "$VERSION" --vendor "Javac-g" --description "Modern scientific calculator built with Java 21 and JavaFX" --input build/jpackage-input --main-jar "$MAIN_JAR" --main-class com.denysov.calculator.CalculatorApplication --dest build/release --linux-package-name denysov-calculator --linux-menu-group Utility --linux-shortcut
+          jpackage --type deb --name denysov-calculator --app-version "$VERSION" --vendor "Javac-g" --description "Modern scientific calculator built with Java 21 and JavaFX" --input build/jpackage-input --main-jar "$MAIN_JAR" --main-class com.denysov.calculator.Launcher --dest build/release --linux-package-name denysov-calculator --linux-menu-group Utility --linux-shortcut
       - name: Upload Linux package
         uses: actions/upload-artifact@v4
         with:
@@ -67,7 +67,7 @@ jobs:
           $version = $env:GITHUB_REF_NAME.TrimStart('v')
           $jar = (Get-ChildItem -Path "build/jpackage-input" -Filter "Calculator-DM-*.jar" | Select-Object -First 1).Name
           New-Item -ItemType Directory -Force -Path "build/release" | Out-Null
-          jpackage --type exe --name "Denysov Calculator" --app-version "$version" --vendor "Javac-g" --description "Modern scientific calculator built with Java 21 and JavaFX" --input "build/jpackage-input" --main-jar "$jar" --main-class "com.denysov.calculator.CalculatorApplication" --dest "build/release" --win-menu --win-shortcut --win-dir-chooser
+          jpackage --type exe --name "Denysov Calculator" --app-version "$version" --vendor "Javac-g" --description "Modern scientific calculator built with Java 21 and JavaFX" --input "build/jpackage-input" --main-jar "$jar" --main-class "com.denysov.calculator.Launcher" --dest "build/release" --win-menu --win-shortcut --win-dir-chooser
       - name: Upload Windows installer
         uses: actions/upload-artifact@v4
         with:
